@@ -7,7 +7,7 @@ This is a GitHub action to generate Release changelog.
 ## How to use / 如何使用
 ```yaml
 - name: Generate release body
-  uses: qhy040404/auto-generate-release-log@v1.0.1
+  uses: qhy040404/auto-generate-release-log@v1.0.2
   with:
     changelog: 'Changelog.md'
     template: '.github/RELEASE_TEMPLATE.md'
