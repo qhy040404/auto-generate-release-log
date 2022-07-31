@@ -31,6 +31,11 @@ inputs:
 runs:
   using: composite
   steps:
+    - uses: actions/checkout@v3
+      with:
+        repository: qhy040404/auto-generate-release-log
+        path: auto-generate-tools
+
     - uses: actions/setup-python@v4
       with:
         python-version: '3.9'
@@ -41,7 +46,7 @@ runs:
         python3 --version
       shell: bash
 
-    - run: python3 src/main.py
+    - run: python3 auto-generate-tools/src/main.py
       shell: bash
       env:
         CHANGELOG: ${{ inputs.changelog }}
