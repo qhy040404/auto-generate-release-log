@@ -1,5 +1,6 @@
 name: 'Auto generate Release changelog'
 description: 'A GitHub action to generate Release changelog'
+author: 'qhy040404'
 
 inputs:
   changelog:
