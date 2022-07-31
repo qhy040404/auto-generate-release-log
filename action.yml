@@ -1,0 +1,51 @@
+name: 'Auto generate Release changelog'
+description: 'A GitHub action to generate Release changelog'
+
+inputs:
+  changelog:
+    description: 'Your changelog filepath'
+    required: true
+    default: 'Changelog.md'
+  template:
+    description: 'Your Release template filepath'
+    required: true
+    default: '.github/RELEASE_TEMPLATE.md'
+  tag:
+    description: 'Current tag name'
+    required: true
+    default: ''
+  template-data:
+    description: 'The content in template'
+    required: true
+    default: ''
+  fore-delimiter:
+    description: 'The content between the tag name and the content'
+    required: true
+    default: ''
+  back-delimiter:
+    description: 'The content between the content and the next tag name'
+    required: true
+    default: ''
+
+runs:
+  using: composite
+  steps:
+    - uses: actions/setup-python@v4
+      with:
+        python-version: '3.9'
+        architecture: 'x64'
+
+    - name: Verify Python
+      run: |
+        python3 --version
+      shell: bash
+
+    - run: python3 src/main.py
+      shell: bash
+      env:
+        CHANGELOG: ${{ inputs.changelog }}
+        TEMPLATE: ${{ inputs.template }}
+        TAG: ${{ inputs.tag }}
+        TEMPLATE_DATA: ${{ inputs.template-data }}
+        FORE: ${{ inputs.fore-delimiter }}
+        BACK: ${{ inputs.back-delimiter }}
