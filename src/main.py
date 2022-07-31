@@ -8,7 +8,7 @@ fore_delim = os.getenv("FORE")
 back_delim = os.getenv("BACK")
 
 # Init define
-with open(changelog_path, "r") as changelog:
+with open(changelog_path, "r", encoding='utf-8') as changelog:
     cl = changelog.read()
 
 try:
@@ -17,10 +17,10 @@ try:
 except IndexError:
     exit(1)
 
-with open(template_path, "r") as template:
+with open(template_path, "r", encoding='utf-8') as template:
     final_data = template.read()
 
 final_data = final_data.replace(template_data, proc_log)
 
-with open(template_path, "w") as release:
+with open(template_path, "w", encoding='utf-8') as release:
     release.write(final_data)
