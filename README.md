@@ -2,6 +2,12 @@
 
 This is a GitHub action to generate Release changelog.
 
+# Deprecated
+
+### Use [qhy040404/auto-generate-release-body](https://github.com/qhy040404/auto-generate-release-body) instead.
+
+---
+
 这是一个用于自动创建 Release 更新日志的 GitHub action
 
 ## How to use / 如何使用
